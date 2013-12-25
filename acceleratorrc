@@ -1,0 +1,17 @@
+[encoder]
+app = /usr/local/bin/HandBrakeCLI
+preset = AppleTV 3
+
+
+[logging]
+logDir = /var/log
+transmissionOutput = /var/log/transmission.out
+conversionLog = /var/log/TR_AUTOMATION.log
+
+[output]
+outputDir = /Users/USERNAME/Desktop/
+
+[mailsettings]
+
+[pushsettings]
+prowlApiKey = PROWL_API_KEY
