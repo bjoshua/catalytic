@@ -37,10 +37,14 @@ logging.info("Starting Accelerator Run at " + str(datetime.now()))
 # logging.info(str(os.environ))
 
 # Translate Torrent Env Vars
-try: 
-torrentDir = os.environ['TR_TORRENT_DIR'] 
-torrentName = os.environ['TR_TORRENT_NAME']
-torrentPath = os.path.join(torrentDir, torrentName)
+torrentDir = os.environ.get('TR_TORRENT_DIR', 'DIR_DOES_NOT_EXIST')
+torrentName = os.environ.get('TR_TORRENT_NAME', 'NAME_DOES_NOT_EXIST')
+
+if not 'DOES_NOT_EXIST' in torrentDir or not 'DOES_NOT_EXIST' in torrentName:
+	torrentPath = os.path.join(torrentDir, torrentName)
+else: 
+	logging.error("Transmission Environment Variables were not passed to the script, you may have executed the script manually")
+	raise SystemExit("Transmission Runtime Envrionment not found, make sure Transmission executed the script on Torrent Completion")
 
 def pushNotification(application="Accelerator Transcoding", title="Encoding Status", message="Transcode Completed"):
  
