@@ -24,7 +24,7 @@ import prowlpy
 '''
 
 Config=ConfigParser.ConfigParser()
-Config.read(os.environ['HOME'] + '/bin/acceleratorrc')
+Config.read(os.environ['HOME'] + '/.catalyticrc')
 
 logging.basicConfig(filemode='a',
                     filename=Config.get('logging', 'transmissionOutput'),
